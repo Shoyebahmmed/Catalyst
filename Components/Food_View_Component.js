@@ -1,25 +1,40 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import React,{useState} from 'react';
 
 export default function Food_View_Component() {
+
+  const img_url = require('./images/shrimp.jpg');
+  const [food_name, set_name] = useState('Shrimp Soup') ;
+  const [product_price, set_price]= useState(15);
+  
+  
   return (
     <View style={styles.container}>
       <View style={styles.mineview}>
         <View style={styles.img}>
-          <Text style={styles.text}>Image Section</Text> {/* Added Text for visibility */}
+        <Image 
+        
+        source = {img_url}
+        style = {styles.img_style}
+        resizeMode = 'contain'
+        
+        />
+
+          
         </View>
 
         <View style={styles.body}> 
           <View style={styles.name}>
-            <Text style={styles.text}>Food Name</Text> {/* Added Text for visibility */}
+            <Text style={styles.text}>{food_name}</Text> {/*Added Text for visibility*/}
           </View>
 
           <View style={styles.priceSection}>
             <View style={styles.price}>
-              <Text style={styles.text}>Price</Text> {/* Added Text for visibility */}
+              <Text style={styles.text}>{product_price}</Text> {/*Added Text for visibility*/}
             </View>
             <View style={styles.quantity}>
-              <Text style={styles.text}>Quantity</Text> {/* Added Text for visibility */}
+              <Text style={styles.text}>{product_price}</Text> {/*Added Text for visibility*/}
             </View>
           </View>
         </View>

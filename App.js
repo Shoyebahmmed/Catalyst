@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Food_View_Component from './Components/Food_View_Component';
-import Order_Table_Calculation from './Components/Order_Table_Calculation';
+import Order_Table_Calculation from './Components/order_table_calculation';
 
 export default function App() {
   return (

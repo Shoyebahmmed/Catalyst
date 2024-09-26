@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Order_Table_Calculation() {
+export default function order_table_calculation() {
   // Orders with corrected individual price
   const orders = [
     { id: 1, name: 'Chicken Dimsum', quantity: 1, price: 15.99 },
@@ -50,14 +50,6 @@ export default function Order_Table_Calculation() {
     </View>
   );
 }
-
-const Order_Table_Calculation = () => {
-  return (
-    <View style={styles.container}>
-      <OrderSummary />
-    </View>
-  );
-};
 
 // Styles for the components
 const styles = StyleSheet.create({

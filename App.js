@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Food_View_Component from './Components/Food_View_Component';
-import Order_Table_Calculation from './Components/order_table_calculation';
+import Food_View_Container from './Components/Food_View_Container';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Order_Table_Calculation />
+      <Food_View_Container />
     </View>
   );
 }

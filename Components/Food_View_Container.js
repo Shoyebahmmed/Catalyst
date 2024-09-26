@@ -1,45 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React,{useState} from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function Food_View_Component() {
-
-  const img_url = require('./images/shrimp.jpg');
-  const [food_name, set_name] = useState('Shrimp Soup') ;
-  const [product_price, set_price]= useState(15);
-  
-  
+export default function Food_View_Container() {
   return (
     <View style={styles.container}>
       <View style={styles.mineview}>
-        <View style={styles.img}>
-        <Image 
-        
-        source = {img_url}
-        style = {styles.img_style}
-        resizeMode = 'contain'
-        
-        />
-
-          
+      <View style={styles.img}>
+        <Text style={styles.text}>Image Section</Text>
         </View>
 
-        <View style={styles.body}> 
-          <View style={styles.name}>
-            <Text style={styles.text}>{food_name}</Text> {/*Added Text for visibility*/}
-          </View>
-
-          <View style={styles.priceSection}>
-            <View style={styles.price}>
-              <Text style={styles.text}>{product_price}</Text> {/*Added Text for visibility*/}
+        <View style={styles.bodySection}>
+            <View style={styles.name}>
+                <Text style={styles.text}> name </Text>
             </View>
-            <View style={styles.quantity}>
-              <Text style={styles.text}>{product_price}</Text> {/*Added Text for visibility*/}
-            </View>
-          </View>
         </View>
+
+        <View style={styles.priceSection}>
+        <View style={styles.price}>
+        <Text style={styles.text}> Price </Text>
+        </View>
+
+        <View style={styles.quantity}>
+              <Text style={styles.text}>
+                Quantity
+              </Text>
+              </View>
+        </View>
+
       </View>
-      <StatusBar style="auto" /> {/* Keep the status bar visible */}
     </View>
   );
 }
@@ -66,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Center text horizontally
   },
 
-  body: {
+  bodySection: {
     flex: 1,
     backgroundColor: 'red',
     flexDirection: 'column',

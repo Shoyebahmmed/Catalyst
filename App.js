@@ -6,7 +6,10 @@ import Food_View_Container from './Components/Food_View_Container';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Food_View_Container />
+      
+        <Food_View_Container />
+      
+      
     </View>
   );
 }
@@ -18,4 +21,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  
 });

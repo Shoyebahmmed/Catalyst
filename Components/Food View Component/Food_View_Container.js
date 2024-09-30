@@ -5,7 +5,7 @@ import { StyleSheet, Text, View , Image} from 'react-native';
 
 export default function Food_View_Container() {
 
-  const image_url = require('./images/shrimp.jpg')
+  const image_url = require('../images/shrimp.jpg')
   const[product_name, set_product_name]= useState('Shrimp Soup');
   const[product_price, set_product_price] = useState(10);
   return (

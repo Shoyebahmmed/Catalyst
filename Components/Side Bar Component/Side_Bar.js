@@ -17,6 +17,7 @@ export default function Side_Bar() {
     { title: 'Generate Reports', icon: require('../images/Side Bar Logo/chart.png') },
     { title: 'Manage Database', icon: require('../images/Side Bar Logo/data_manag.png') },
     { title: 'Settings', icon: require('../images/Side Bar Logo/settings.png') },
+    { title: 'Log Out', icon: require('../images/Side Bar Logo/logout.png') },
 ];
 
     

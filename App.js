@@ -44,11 +44,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   sideBar: {
-    width: '25%',
+    width: '20%',
   },
 
   rightSide: {
-    width: '75%',
+    width: '80%',
   },
 
   

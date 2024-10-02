@@ -56,13 +56,16 @@ const styles = StyleSheet.create({
   },
 
   list_row: {
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
+    paddingBottom: 15 
   },
 
   food_container: {
     height: 350, 
     width: '30%', 
-    marginBottom: 20,
+    paddingBottom: 30,
+    borderRadius: 25,
+    backgroundColor: "red"
   },
 
   right_side: {

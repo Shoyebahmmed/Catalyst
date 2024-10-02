@@ -7,6 +7,7 @@ export default function Order_Chart_Component({quantity, product_name, price}) {
 
   return (
     <View style={styles.container}>
+     
       <View style={styles.quantity_box}>
         <Text>x{quantity}</Text>
     </View>
@@ -17,7 +18,6 @@ export default function Order_Chart_Component({quantity, product_name, price}) {
     <View style={styles.price_box}>
         <Text>${price}</Text>
     </View>
-      
     </View>
   );
 }

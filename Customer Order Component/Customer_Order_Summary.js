@@ -1,24 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import Order_Chart_Component from './Order_Chart_Component';
 import Charge_Button from './Charge_Button';
 import Payment_Summary_Component from './Payment_Summary_Component';
-import Order_Table_component from './Order_Table_component';
 
-export default function Customer_Oder_Summary() {
 
+export default function Customer_Order_Summary({orderSummary}) {
+  const orderTableNum = 3;
   return (
 
     <View style={styles.container}>
       <View style={styles.orderTableContainer}>
-        <Order_Table_component table_number='3' />
+        <Text style={styles.tableText}>Table   #{orderTableNum}</Text>
+        <Image 
+          source={require('../Components/images/chef.png')}
+          style={styles.imageLoad}
+        />
       </View>
 
       <View style={styles.orderSection}>
         <Text style={styles.sectionTitle}>Order</Text>
-        <Order_Chart_Component quantity='2' product_name='FFFU' price='20' />
-        <Order_Chart_Component quantity='2' product_name='sdhfbs' price='20' />
-        <Order_Chart_Component quantity='2' product_name='sdhfbs' price='20' />
+        
+        <FlatList
+          data={orderSummary}
+          keyExtractor={item => item.product_Id.toString()}
+          renderItem={({ item }) => (
+            <Order_Chart_Component 
+              quantity={item.quantity} 
+              product_name={item.product_name} 
+              price={item.price} 
+            />
+          )}
+        />
+
       </View>
 
       <View style={styles.paymentSummaryContainer}>
@@ -39,26 +53,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between', // Pushes content apart
   },
+
+  tableText: {
+    fontSize: 30,
+    fontWeight: 'bold'
+  },
+
+  imageLoad: {
+    height: '30%',
+    width: '30%'
+  },
+
   orderTableContainer: {
-    // Add any specific styling needed for the order table here
+
   },
   orderSection: {
-    padding: 20,
-    paddingBottom: 40,
+
   },
   sectionTitle: {
     fontWeight: 'bold',
     fontSize: 24,
-    paddingBottom: 20,
   },
   paymentSummaryContainer: {
-    padding: 20,
- // For extra spacing before the bottom of the screen
+
   },
   chargeButtonContainer: {
-    paddingTop: 40
-    // This will stick to the bottom due to flex behavior
+
   },
 });

@@ -4,18 +4,16 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import Item_Addition_Component from './Item_Addition_Component';
 
 
-export default function Food_View_Container() {
+export default function Food_View_Container({product, addProduct, reomoveProduct}) {
 
-  const image_url = require('../images/shrimp.jpg')
-  const [product_name, set_product_name] = useState('Shrimp Soup');
-  const [product_price, set_product_price] = useState(10);
+
   return (
     <View style={styles.container}>
       <View style={styles.mineview}>
         <View style={styles.img}>
           <Image
 
-            source={image_url}
+            source={product.img}
             style={styles.image_style}
             resizeMode='cover'
 
@@ -24,18 +22,22 @@ export default function Food_View_Container() {
 
         <View style={styles.bodySection}>
           <View style={styles.name}>
-            <Text style={[styles.text, {fontWeight:'500',fontSize:20} ]}> {product_name} </Text>
+            <Text style={[styles.text, {fontWeight:'500',fontSize:20} ]}> {product.name} </Text>
           </View>
         </View>
 
         <View style={styles.priceSection}>
           <View style={styles.price}>
-            <Text style={styles.text}> ${product_price} </Text>
+            <Text style={styles.text}> ${product.price} </Text>
           </View>
 
           
           <View style={styles.add_item}>
-            <Item_Addition_Component />
+            <Item_Addition_Component 
+              quantity={product.quantity}
+              on_add={() => addProduct(product.product_id)}
+              on_remove={() => reomoveProduct(product.product_id)}
+            />
           </View>
         </View>
 

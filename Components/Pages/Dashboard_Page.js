@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import { Custom_Header_Component } from '../Custom_Header_Component';
 import Food_View_Component from '../Food View Component/Food_View_Container';
+import Customer_Oder_Summary from '../../Customer Order Component/Customer_Oder_Summary';
 
 export default function Dashboard_Page({ navigation }) {
   
@@ -30,7 +31,7 @@ export default function Dashboard_Page({ navigation }) {
       </View>
 
       <View style={styles.right_side}>
-        <Text>From Dashboard</Text>
+        <Customer_Oder_Summary/>
       </View>
     </View>
   );

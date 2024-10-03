@@ -8,14 +8,10 @@ export default function Payment_Summary_Component({price}) {
 
 return (
   <View style={styles.container}>
-    <View style={styles.total_box}>
-      <Text style = {{fontWeight: '500'}}>Total</Text>
-  </View>
 
-  <View style={styles.price_box}>
-      <Text style = {{fontWeight: '500'}} >${price}</Text>
-  </View>
-    
+    <Text style = {{fontWeight: '800', fontSize: 25}}>Total</Text>
+    <Text style = {{fontWeight: '800', fontSize: 25}} >${price}</Text>
+
   </View>
 );
 }
@@ -28,22 +24,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 10,
-    paddingHorizontal: 50,
+    paddingHorizontal: 25,
+    paddingBottom: 30,
   },
-  total_box_box:{
-    borderColor: '#b0b0b0',
-    borderWidth: 0.5,
-    borderRadius: 20,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    
-  },
-
-  price_box:{
-    alignSelf: 'flex-end',
-
-
-  }
-
   
 });

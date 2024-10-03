@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
+import { Picker } from '@react-native-picker/picker'; 
+import RNPickerSelect from 'react-native-picker-select';
+
 import { Custom_Header_Component } from '../Custom_Header_Component';
 import Food_View_Component from '../Food View Component/Food_View_Container';
 import Customer_Order_Summary from '../../Customer Order Component/Customer_Order_Summary';
@@ -8,6 +11,7 @@ import Customer_Order_Summary from '../../Customer Order Component/Customer_Orde
 export default function Take_an_Order_Page({ navigation }) {
   const [products, setProducts] = useState([]);
   const [orderSummary, setOrderSummary] = useState([]);
+  const [selectedTable, setSelectedTable] = useState(null);
 
   useEffect(() => {
     const food_products = [
@@ -118,6 +122,23 @@ export default function Take_an_Order_Page({ navigation }) {
       <View style={styles.mid_sec}>
         <Custom_Header_Component title="Take an Order" />
 
+
+        <View style={styles.tableSelector}>
+          <Text style={styles.tableSelectorLabel}>Select Table:</Text>
+          <Picker
+            selectedValue={selectedTable}
+            style={styles.picker}
+            onValueChange={(itemValue) => setSelectedTable(itemValue)}
+          >
+            <Picker.Item label="Table 1" value="1" />
+            <Picker.Item label="Table 2" value="2" />
+            <Picker.Item label="Table 3" value="3" />
+          </Picker>
+          
+        </View>
+
+
+
         <View style={styles.food_view}>
           <FlatList
             data={products}
@@ -138,7 +159,7 @@ export default function Take_an_Order_Page({ navigation }) {
       </View>
 
       <View style={styles.right_side}>
-        <Customer_Order_Summary orderSummary={orderSummary} />
+        <Customer_Order_Summary orderSummary={orderSummary} tableNumber={selectedTable}/>
       </View>
     </View>
   );
@@ -170,17 +191,30 @@ const styles = StyleSheet.create({
 
   food_container: {
     height: 350, 
-    width: '30%', 
+    width: '27%', 
     paddingBottom: 30,
     borderRadius: 25,
-    backgroundColor: "red"
   },
 
   right_side: {
     height: '100%',
     width: '30%',
-    backgroundColor: '#fff',
-    paddingVertical: 50,
-    paddingHorizontal: 10,
+  },
+
+  tableSelector: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    marginVertical: 15,
+  },
+
+  tableSelectorLabel: {
+    fontSize: 16,
+    marginRight: 10,
+  },
+
+  picker: {
+    height: 50,
+    width: 150,
   },
 });

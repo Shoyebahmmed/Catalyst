@@ -22,7 +22,7 @@ export default function Food_View_Container({product, addProduct, reomoveProduct
 
         <View style={styles.bodySection}>
           <View style={styles.name}>
-            <Text style={[styles.text, {fontWeight:'500',fontSize:20} ]}> {product.name} </Text>
+            <Text style={styles.text}> {product.name} </Text>
           </View>
         </View>
 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     height: '100%' ,
-    borderRadius: 25// Full width of the screen
+    borderRadius: 25
   },
   image_style: {
     width: '100%',
@@ -75,64 +75,62 @@ const styles = StyleSheet.create({
 
   },
   img: {
-    //flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center', // Center text vertically
+    justifyContent: 'center', 
     alignItems: 'center',
     width: '100%',
-    height: '70%' // Center text horizontally
+    height: '70%' 
   },
 
   bodySection: {
-    //flex: 1,
     backgroundColor: '#fff',
     flexDirection: 'column',
     width: '100%',
-    height: '10%' // Full width of the screen
+    height: '10%'
   },
 
   name: {
-    //flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    paddingTop: 5
+    paddingTop: 10,
+    paddingLeft: 10
    
   },
 
   priceSection: {
-    //flex:1,
+
     backgroundColor: '#fff',
     flexDirection: 'row',
     width: '100%',
     height: '30%',
-    justifyContent: "space-between", // Center horizontally
-    alignItems: 'center',      // Center vertically
+    justifyContent: "space-between", 
+    alignItems: 'center',      
   },
   
 
   price: {
     backgroundColor: '#fff',
-    justifyContent: 'center',  // Center text vertically
-    alignItems: 'center',      // Center text horizontally
-    padding: 10,               // Add padding for spacing
+    justifyContent: 'center',  
+    alignItems: 'center',      
+    padding: 10,               
   },
   
   quantity: {
     backgroundColor: '#fff',
-    justifyContent: 'center',  // Center text vertically
-    alignItems: 'center',      // Center text horizontally
-    padding: 10,               // Add padding for spacing
+    justifyContent: 'center',  
+    alignItems: 'center',      
+    padding: 10,              
   },
   
   add_item: {
-    justifyContent: 'center',  // Center item vertically
-    alignItems: 'center',      // Center item horizontally
-    padding: 10, 
-                  // Add padding for spacing
+    justifyContent: 'center', 
+    alignItems: 'center',      
+    paddingRight: 10
   },
     
   text: {
-    color: 'black', // Text color to be visible against backgrounds
-    fontSize: 20, // Font size
+    color: 'black', 
+    fontWeight:'800',
+    fontSize:20
   },
 });

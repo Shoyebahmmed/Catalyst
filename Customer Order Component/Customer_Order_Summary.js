@@ -53,7 +53,7 @@ export default function Customer_Order_Summary({orderSummary, tableNumber}) {
       <View style={styles.paymentSummaryContainer}>
         <Payment_Summary_Component price={totalCost} />
           <View style={styles.chargeButtonContainer}>
-            <Charge_Button />
+            <Charge_Button tableNumber={tableNumber}/>
           </View>
 
       </View>

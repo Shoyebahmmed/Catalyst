@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Custom_Header_Component } from '../Custom_Header_Component';
+import Custom_Header_Component from '../Custom_Header_Component';
 
 
 export default function Generate_Reports_Page({ navigation }) {

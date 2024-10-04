@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export function  Custom_Header_Component ({ title, breadcrumb }) {
+export default function  Custom_Header_Component ({ title, breadcrumb }) {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.titleText}>{title}</Text>
@@ -13,7 +13,8 @@ export function  Custom_Header_Component ({ title, breadcrumb }) {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height: '15%',
+    height: '100%',
+    width: '100%',
     backgroundColor: '#f6f8fb', 
     paddingLeft: 50,
   },

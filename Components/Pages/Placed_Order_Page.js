@@ -5,7 +5,7 @@ import Custom_Header_Component from '../Custom_Header_Component';
 import Food_View_Component from '../Food View Component/Food_View_Container';
 
 
-export default function Dashboard_Page({ navigation }) {
+export default function Placed_Order({ navigation }) {
   
   const foodItems = Array(10).fill(null); 
 
@@ -14,7 +14,7 @@ export default function Dashboard_Page({ navigation }) {
 
       <View style={styles.mid_sec}>
       <View style={styles.header}>
-          <Custom_Header_Component title="Dashboard" />
+          <Custom_Header_Component title="Placed Orders" />
         </View>
 
         <View style={styles.list_view}>
@@ -35,7 +35,7 @@ export default function Dashboard_Page({ navigation }) {
       <View style={styles.right_side}>
       <View style={styles.imageLoad}>
         <Image 
-          source={require('../images/eating_together.png')}
+          source={require('../images/order.png')}
           style={{height: '100%', height: '100%', resizeMode: 'contain'}}
         />
         </View>

@@ -13,7 +13,13 @@ export default function Category_View_Componetnt  ({ categories, selectedCategor
             selectedCategory === category.categoryId && styles.categoryItemSelected
           ]}
         >
-          <Text style={styles.categoryText}>{category.name}</Text>
+          <Text style={[
+                styles.categoryText,
+                selectedCategory === category.categoryId && {color: '#fff'}
+            ]}
+          >
+            {category.name}
+          </Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   categoryItemSelected: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#E2802F',
   },
   categoryText: {
     fontSize: 16,

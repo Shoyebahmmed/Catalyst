@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Side_Bar from './Components/Side Bar Component/Side_Bar';
 import Dashboard_Page from './Components/Pages/Dashboard_Page';
 import Take_an_Order_Page from './Components/Pages/Take_an_Order_Page';
+import Placed_Order from './Components/Pages/Placed_Order_Page';
 import Generate_Reports_Page from './Components/Pages/Generate_Reports_Page';
 import Manage_Database_Page from './Components/Pages/Manage_Database_Page';
 import Settings_Page from './Components/Pages/Settings_Page';
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Navigator initialRouteName="Dashboard">
             <Stack.Screen name="Dashboard" component={Dashboard_Page} options={{ headerShown: false, animationEnabled: false }} />
             <Stack.Screen name="Take an Order" component={Take_an_Order_Page} options={{ headerShown: false, animationEnabled: false }} />
+            <Stack.Screen name="Placed Orders" component={Placed_Order} options={{ headerShown: false, animationEnabled: false }} />
             <Stack.Screen name="Generate Reports" component={Generate_Reports_Page} options={{ headerShown: false, animationEnabled: false }} />
             <Stack.Screen name="Manage Database" component={Manage_Database_Page} options={{ headerShown: false, animationEnabled: false }} />
             <Stack.Screen name="Settings" component={Settings_Page} options={{ headerShown: false , animationEnabled: false}} />

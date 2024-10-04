@@ -1,15 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
-export default function Charge_Button({ tableNumber }) {
+export default function Charge_Button({ orderSummary, tableNumber }) {
   function onSubmit() {
-    if (!tableNumber) {
+    if (!orderSummary || orderSummary.length === 0) {
+      Alert.alert(
+        'Error', 
+        'The order is empty. Please add items to the order before proceeding.'
+      );
+    } else if (!tableNumber) {
       Alert.alert(
         'Error', 
         'Please select a table number before placing the order.'
       );
     } else {
       console.log('Table Number:', tableNumber);
+      console.log('Order Summary:', orderSummary);
     }
   }
 
@@ -22,7 +28,7 @@ export default function Charge_Button({ tableNumber }) {
 
 const styles = StyleSheet.create({
   button_style: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#E2802F',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 25,

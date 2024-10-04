@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Side_Bar_Options from './Side_Bar_Options';
+import { FontAwesome, MaterialIcons, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 
@@ -12,13 +13,14 @@ export default function Side_Bar() {
   const navigation = useNavigation();
 
   const options = [
-    { title: 'Dashboard', icon: require('../images/Side Bar Logo/dashboard.png') },
-    { title: 'Take an Order', icon: require('../images/Side Bar Logo/list.png') },
-    { title: 'Generate Reports', icon: require('../images/Side Bar Logo/chart.png') },
-    { title: 'Manage Database', icon: require('../images/Side Bar Logo/data_manag.png') },
-    { title: 'Settings', icon: require('../images/Side Bar Logo/settings.png') },
-    { title: 'Log Out', icon: require('../images/Side Bar Logo/logout.png') },
-];
+    { title: 'Dashboard', icon: 'view-dashboard-outline', iconLib: MaterialCommunityIcons },
+    { title: 'Take an Order', icon: 'restaurant-menu', iconLib: MaterialIcons },
+    { title: 'Placed Orders', icon: 'clipboard-list', iconLib: MaterialCommunityIcons },
+    { title: 'Generate Reports', icon: 'analytics-outline', iconLib: Ionicons },
+    { title: 'Manage Database', icon: 'storage', iconLib: MaterialIcons },
+    { title: 'Settings', icon: 'settings-outline', iconLib: Ionicons },
+    { title: 'Log Out', icon: 'log-out-outline', iconLib: Ionicons },
+  ];
 
     
 
@@ -36,7 +38,8 @@ export default function Side_Bar() {
         {options.map((option, index) => (
           <Side_Bar_Options
               key={option.title}
-              imageSource={option.icon}
+              iconName={option.icon}
+              iconLib={option.iconLib}
               description={option.title}
               onSelect={() => {
                 setSelectedOption(index); 

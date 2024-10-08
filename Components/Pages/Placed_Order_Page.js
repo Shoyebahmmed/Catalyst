@@ -1,43 +1,62 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import Custom_Header_Component from '../Custom_Header_Component';
-import Food_View_Component from '../Food View Component/Food_View_Container';
-
+import Placed_Order_View from '../Placed_Order_Components/Placed_Order_View';
 
 export default function Placed_Order({ navigation }) {
-  
-  const foodItems = Array(10).fill(null); 
+  const placedOrders = [
+    {
+      orderId: 100001,
+      tableNumber: 5,
+      items: [
+        {
+          product_Id: 123456,
+          product_name: 'Pizza',
+          price: 12,
+          quantity: 2,
+        },
+        {
+          product_Id: 223456,
+          product_name: 'Burger',
+          price: 8,
+          quantity: 1,
+        },
+      ],
+      totalCost: 32,
+      totalQuantity: 3,
+      orderTime: '2024-10-04T10:15:00Z',
+    },
+  ];
 
   return (
     <View style={styles.container}>
-
       <View style={styles.mid_sec}>
-      <View style={styles.header}>
+        <View style={styles.header}>
           <Custom_Header_Component title="Placed Orders" />
         </View>
 
         <View style={styles.list_view}>
           <FlatList
-            data={foodItems}
-            renderItem={() => (
+            data={placedOrders}
+            renderItem={({ item }) => (
               <View style={styles.button_container}>
-                <Button title='Submit' style={{backgroundColor: 'blue'}} />
+                <Placed_Order_View placedOrder={item} />
               </View>
             )}
-            keyExtractor={(item, index) => index.toString()}
-            numColumns={3} 
-            columnWrapperStyle={styles.row} 
+            keyExtractor={(item) => item.orderId.toString()}
+            numColumns={1}
+            columnWrapperStyle={styles.row}
           />
         </View>
       </View>
 
       <View style={styles.right_side}>
-      <View style={styles.imageLoad}>
-        <Image 
-          source={require('../images/order.png')}
-          style={{height: '100%', height: '100%', resizeMode: 'contain'}}
-        />
+        <View style={styles.imageLoad}>
+          <Image
+            source={require('../images/order.png')}
+            style={{ width: '100%', height: '100%', resizeMode: 'contain' }}
+          />
         </View>
       </View>
     </View>
@@ -56,27 +75,17 @@ const styles = StyleSheet.create({
     width: '70%',
     backgroundColor: '#f6f8fb',
   },
-  
+
   header: {
     height: '15%',
     justifyContent: 'center',
   },
 
-  list_view: {
-    flex: 1,
-    paddingHorizontal: '5%',
-    paddingVertical: '3%',
-  },
-
-  row: {
-    justifyContent: 'space-between', 
-  },
-
   button_container: {
-    height: 150, 
-    width: '30%', 
+    height: 150,
+    width: '100%',
     marginBottom: 20,
-    backgroundColor: '#676f7b',
+    backgroundColor: '#fff',
   },
 
   right_side: {
@@ -86,13 +95,13 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     paddingHorizontal: 10,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   imageLoad: {
     height: '30%',
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 });

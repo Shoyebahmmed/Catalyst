@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import Custom_Header_Component from '../Custom_Header_Component';
 import Placed_Order_View from '../Placed_Order_Components/Placed_Order_View';
 import Placed_Order_Detailed_View from '../Placed_Order_Components/Placed_Order_Detailed_View';
@@ -182,7 +182,11 @@ export default function Placed_Order_Page({ navigation }) {
             />
           ) : (
             <View style={styles.placeholder}>
-            <Text style={styles.placeholderText}>Select an order to view details</Text>
+              <Image 
+              source={require('../images/eating_together.png')}
+              style={styles.placeholderImage}
+            />
+            <Text style={styles.placeholderText}>Click on an order to explore its contents</Text>
           </View>
           )}
       </View>
@@ -246,6 +250,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  placeholderImage: {
+    width: '70%',
+    height: '40%',
+    resizeMode: 'contain',
   },
 
   placeholderText: {

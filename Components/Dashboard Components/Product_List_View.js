@@ -19,7 +19,7 @@ export default function Product_List_View({ image, category }) {
     { product_id: 523457, name: 'Mixed Nuts', img: require('../images/shrimp.jpg'), price: 4, categoryId: 5 },
     { product_id: 523458, name: 'Pretzels', img: require('../images/shrimp.jpg'), price: 3, categoryId: 5 },
   ]);
-
+// need to update
   const filteredProducts = food_products.filter(item => item.categoryId === category.categoryId);
   return (
     <View style={styles.container}>

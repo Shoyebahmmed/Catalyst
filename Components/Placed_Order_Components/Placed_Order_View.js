@@ -7,13 +7,19 @@ export default function Placed_Order_View({ placedOrder }) {
       <View style={styles.orderIDs}>
         <Text style={styles.tableNum}>Table: {placedOrder.tableNumber}</Text>
         <Text style={styles.orderID}>Order ID: {placedOrder.orderId}</Text>
-        <Text style={styles.time}>Time: {placedOrder.orderTime}</Text>
+        <Text style={styles.time}>Time: {new Date(placedOrder.orderTime).toLocaleString()}</Text>
       </View>
       <View style={styles.quantity}>
         <Text style={styles.quantityText}>{placedOrder.totalQuantity} items</Text>
       </View>
       <View style={styles.cost}>
         <Text style={styles.costText}>${placedOrder.totalCost}</Text>
+        <Text style={[
+                      styles.paymentStatusText,
+                      placedOrder.status === 'Paid' 
+                        ? styles.statusPaid 
+                        : styles.statusUnpaid
+                    ]}>{placedOrder.status}</Text>
       </View>
       <View style={styles.sign}>
         <Text style={styles.signText}>{">"}</Text>
@@ -68,6 +74,24 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  statusPaid: {
+    fontSize: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    backgroundColor: '#e0ffe6',
+    borderRadius: 15,
+    color: '#2e7d32',
+    marginTop: 3,
+  },
+  statusUnpaid: {
+    fontSize: 12,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    backgroundColor: '#ffe6e6',
+    borderRadius: 15,
+    color: '#d32f2f',
+    marginTop: 3,
   },
   costText: {
     fontSize: 19,

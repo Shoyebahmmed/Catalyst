@@ -48,12 +48,13 @@ export default function Category_View({categories, setSelectedCategory}) {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
+    flex: 1,
     width: '100%',
     backgroundColor: '#f6f8fb',
   },
 
   list_view: {
+    flex: 1,
     paddingHorizontal: '5%',
     paddingVertical: '3%',
   },

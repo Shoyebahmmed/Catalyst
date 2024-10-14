@@ -45,7 +45,6 @@ export default function Dashboard_Page({ navigation }) {
       <View style={styles.mid_sec}>
         <View style={styles.header}>
           <Custom_Header_Component title="Dashboard" />
-          <Text>Hello</Text>
         </View>
         <View style={styles.categories}>
           <Category_View categories={categories} setSelectedCategory={setSelectedCategory} />
@@ -89,7 +88,8 @@ const styles = StyleSheet.create({
   },
   categories: {
     width: '100%',
-    height: '85%'
+    height: '85%',
+    flex: 1,
   },
   right_side: {
     height: '100%',

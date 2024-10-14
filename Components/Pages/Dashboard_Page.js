@@ -45,6 +45,7 @@ export default function Dashboard_Page({ navigation }) {
       <View style={styles.mid_sec}>
         <View style={styles.header}>
           <Custom_Header_Component title="Dashboard" />
+          <Text>Hello</Text>
         </View>
         <View style={styles.categories}>
           <Category_View categories={categories} setSelectedCategory={setSelectedCategory} />

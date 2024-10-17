@@ -27,7 +27,7 @@ export default function Customer_Order_Summary({orderSummary, tableNumber}) {
         <Text style={styles.tableText}>Table   #{tableNumber}</Text>
         <View style={styles.imageLoad}>
         <Image 
-          source={require('../Components/images/chef.png')}
+          source={require('../images/chef.png')}
           style={{height: '100%', height: '100%', resizeMode: 'contain'}}
         />
         </View>

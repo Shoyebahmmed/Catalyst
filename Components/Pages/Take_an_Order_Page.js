@@ -6,7 +6,7 @@ import RNPickerSelect from 'react-native-picker-select';
 
 import Custom_Header_Component from '../Custom_Header_Component';
 import Food_View_Component from '../Food View Component/Food_View_Container';
-import Customer_Order_Summary from '../../Customer Order Component/Customer_Order_Summary';
+import Customer_Order_Summary from '../Customer Order Component/Customer_Order_Summary';
 import Select_Table_Component from '../Food View Component/Select_Table_Component';
 import Category_View_Componetnt from '../Food View Component/Category_View_Component';
 

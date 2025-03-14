@@ -4,12 +4,16 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Custom_Header_Component from '../Custom_Header_Component';
 import Reports_Options from '../Generate Report Components/Reports_Oprtions';
 import Generate_Daily_Report from '../Generate Report Components/Generate_Daily_Report';
+import Generate_Weekly_Report from '../Generate Report Components/Generate_Weekly_Report';
+import Generate_Monthly_Report from '../Generate Report Components/Generate_Monthly_Report';
+import Generate_Yearly_Report from '../Generate Report Components/Generate_Yearly_Report';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 
 
 export default function Generate_Reports_Page({ navigation }) {
   const [isOverLayOn, setIsOverLayOn] = useState(false);
+  const [reportType, setReportType] = useState('daily');
 
   const orderHistory = [
     {
@@ -48,204 +52,109 @@ export default function Generate_Reports_Page({ navigation }) {
       totalPrice: 87.18,
       categoryId: 2
     },
-    {
-      orderId: 2,
-      products: [
-        { productId: 201, quantity: 3, price: 13.56 }
-      ],
-      orderTime: '2024-09-28T06:34:00.123456Z',
-      totalPrice: 40.68,
-      categoryId: 1
-    },
-    {
-      orderId: 3,
-      products: [
-        { productId: 301, quantity: 1, price: 17.42 },
-        { productId: 302, quantity: 2, price: 15.23 }
-      ],
-      orderTime: '2024-09-20T09:53:00.123456Z',
-      totalPrice: 47.88,
-      categoryId: 5
-    },
-    {
-      orderId: 4,
-      products: [
-        { productId: 401, quantity: 2, price: 19.72 }
-      ],
-      orderTime: '2024-09-30T18:01:00.123456Z',
-      totalPrice: 39.44,
-      categoryId: 3
-    },
-    {
-      orderId: 5,
-      products: [
-        { productId: 501, quantity: 3, price: 11.83 },
-        { productId: 502, quantity: 1, price: 7.59 }
-      ],
-      orderTime: '2024-09-17T15:24:00.123456Z',
-      totalPrice: 43.08,
-      categoryId: 2
-    },
-
-    {
-      orderId: 46,
-      products: [
-        { productId: 4601, quantity: 2, price: 14.99 },
-        { productId: 4602, quantity: 1, price: 9.49 }
-      ],
-      orderTime: '2024-10-09T12:30:00Z',
-      totalPrice: 39.47,
-      categoryId: 4
-    },
-    {
-      orderId: 47,
-      products: [
-        { productId: 4701, quantity: 1, price: 10.00 },
-        { productId: 4702, quantity: 4, price: 5.99 }
-      ],
-      orderTime: '2024-10-10T15:20:00Z',
-      totalPrice: 33.96,
-      categoryId: 3
-    },
-    {
-      orderId: 48,
-      products: [
-        { productId: 4801, quantity: 3, price: 6.50 },
-        { productId: 4802, quantity: 2, price: 8.75 }
-      ],
-      orderTime: '2024-10-11T09:45:00Z',
-      totalPrice: 36.00,
-      categoryId: 2
-    },
-    {
-      orderId: 49,
-      products: [
-        { productId: 4901, quantity: 1, price: 12.99 },
-        { productId: 4902, quantity: 3, price: 6.49 }
-      ],
-      orderTime: '2024-10-12T18:10:00Z',
-      totalPrice: 32.46,
-      categoryId: 5
-    },
-    {
-      orderId: 50,
-      products: [
-        { productId: 5001, quantity: 2, price: 11.49 },
-        { productId: 5002, quantity: 1, price: 7.99 }
-      ],
-      orderTime: '2024-10-13T10:25:00Z',
-      totalPrice: 30.97,
-      categoryId: 1
-    },
 
     {
       orderId: 11,
       products: [
-        { productId: 101, quantity: 3, price: 7.74 }
+        { productId: 101, productName: "Pasta", quantity: 4, price: 9.65 },
+        { productId: 102, productName: "Solo", quantity: 2, price: 6.29 },
+        { productId: 103, productName: "Swarma", quantity: 4, price: 9.65 },
+        { productId: 106, productName: "Snack Pack", quantity: 2, price: 6.29 }
       ],
-      orderTime: '2024-09-18T15:15:07.603273',
-      totalPrice: 23.22,
-      categoryId: 3
+      orderTime: "2024-10-12T14:24:00.123456Z",
+      totalPrice: 47.18,
+      categoryId: 2
     },
     {
       orderId: 12,
       products: [
-        { productId: 201, quantity: 2, price: 5.33 },
-        { productId: 202, quantity: 5, price: 5.69 },
-        { productId: 203, quantity: 2, price: 11.71 }
+        { productId: 101, productName: "Pasta", quantity: 3, price: 9.65 },
+        { productId: 105, productName: "Pizza", quantity: 1, price: 6.29 }
       ],
-      orderTime: '2024-09-24T15:15:07.603313',
-      totalPrice: 62.53,
+      orderTime: "2024-10-13T11:15:00.123456Z",
+      totalPrice: 35.59,
       categoryId: 1
     },
     {
       orderId: 13,
       products: [
-        { productId: 301, quantity: 1, price: 5.22 },
-        { productId: 302, quantity: 2, price: 19.63 },
-        { productId: 303, quantity: 4, price: 6.67 }
+        { productId: 102, productName: "Solo", quantity: 5, price: 6.29 },
+        { productId: 103, productName: "Swarma", quantity: 3, price: 9.65 }
       ],
-      orderTime: '2024-09-20T15:15:07.603331',
-      totalPrice: 71.16,
-      categoryId: 5
+      orderTime: "2024-10-14T13:45:00.123456Z",
+      totalPrice: 50.57,
+      categoryId: 2
     },
     {
       orderId: 14,
       products: [
-        { productId: 401, quantity: 1, price: 15.24 },
-        { productId: 402, quantity: 3, price: 5.26 },
-        { productId: 403, quantity: 1, price: 19.82 }
+        { productId: 106, productName: "Snack Pack", quantity: 2, price: 6.29 },
+        { productId: 104, productName: "Pwan", quantity: 4, price: 9.65 }
       ],
-      orderTime: '2024-09-16T15:15:07.603347',
-      totalPrice: 50.84,
-      categoryId: 4
+      orderTime: "2024-10-15T16:30:00.123456Z",
+      totalPrice: 53.82,
+      categoryId: 3
     },
     {
       orderId: 15,
       products: [
-        { productId: 501, quantity: 4, price: 11.21 },
-        { productId: 502, quantity: 4, price: 11.17 },
-        { productId: 503, quantity: 5, price: 12.13 }
+        { productId: 105, productName: "Pizza", quantity: 3, price: 6.29 },
+        { productId: 101, productName: "Pasta", quantity: 2, price: 9.65 }
       ],
-      orderTime: '2024-09-27T15:15:07.603359',
-      totalPrice: 150.17,
-      categoryId: 3
+      orderTime: "2024-10-16T09:20:00.123456Z",
+      totalPrice: 37.87,
+      categoryId: 1
     },
     {
       orderId: 16,
       products: [
-        { productId: 601, quantity: 3, price: 14.73 },
-        { productId: 602, quantity: 4, price: 10.91 },
-        { productId: 603, quantity: 5, price: 10.31 }
+        { productId: 101, productName: "Pasta", quantity: 2, price: 9.65 },
+        { productId: 103, productName: "Swarma", quantity: 1, price: 9.65 },
+        { productId: 106, productName: "Snack Pack", quantity: 2, price: 6.29 }
       ],
-      orderTime: '2024-09-22T15:15:07.603372',
-      totalPrice: 139.38,
+      orderTime: "2024-10-17T14:10:00.123456Z",
+      totalPrice: 41.53,
       categoryId: 2
     },
     {
       orderId: 17,
       products: [
-        { productId: 701, quantity: 5, price: 13.85 }
+        { productId: 105, productName: "Pizza", quantity: 4, price: 6.29 },
+        { productId: 104, productName: "Pwan", quantity: 2, price: 9.65 }
       ],
-      orderTime: '2024-09-14T15:15:07.603380',
-      totalPrice: 69.25,
-      categoryId: 2
+      orderTime: "2024-10-18T18:45:00.123456Z",
+      totalPrice: 47.88,
+      categoryId: 3
     },
     {
       orderId: 18,
       products: [
-        { productId: 801, quantity: 1, price: 6.64 },
-        { productId: 802, quantity: 2, price: 12.31 },
-        { productId: 803, quantity: 3, price: 12.87 }
+        { productId: 102, productName: "Solo", quantity: 3, price: 6.29 },
+        { productId: 103, productName: "Swarma", quantity: 2, price: 9.65 }
       ],
-      orderTime: '2024-09-19T15:15:07.603393',
-      totalPrice: 69.87,
-      categoryId: 2
-    },
-    {
-      orderId: 19,
-      products: [
-        { productId: 901, quantity: 3, price: 6.6 },
-        { productId: 902, quantity: 2, price: 17.47 },
-        { productId: 903, quantity: 5, price: 18.09 }
-      ],
-      orderTime: '2024-09-14T15:15:07.603406',
-      totalPrice: 145.19,
-      categoryId: 2
-    },
-    {
-      orderId: 20,
-      products: [
-        { productId: 1001, quantity: 4, price: 13.8 },
-        { productId: 1002, quantity: 4, price: 17.47 }
-      ],
-      orderTime: '2024-09-30T15:15:07.603416',
-      totalPrice: 125.08,
-      categoryId: 3
+      orderTime: "2024-10-19T10:05:00.123456Z",
+      totalPrice: 38.52,
+      categoryId: 1
     }
-  
+    
 
   ];
+
+
+  const renderReportComponent = () => {
+    switch (reportType) {
+      case 'daily':
+        return <Generate_Daily_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
+      case 'weekly':
+        return <Generate_Weekly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
+      case 'monthly':
+        return <Generate_Monthly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
+      case 'yearly':
+        return <Generate_Yearly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
+      default:
+        return null;
+    }
+  };
   
 
 
@@ -257,7 +166,7 @@ export default function Generate_Reports_Page({ navigation }) {
         <View style={styles.overlay}>
 
           <View style={styles.reportView}>
-            <Generate_Daily_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn}  isOverLayOn={isOverLayOn} />
+            {renderReportComponent()}
           </View>
         </View>
 
@@ -280,6 +189,7 @@ export default function Generate_Reports_Page({ navigation }) {
               order_history={orderHistory} 
               setIsOverLayOn={setIsOverLayOn}
               isOverLayOn={isOverLayOn}
+              setReportType={setReportType}
             />
           </View>
 

@@ -8,7 +8,7 @@ import Custom_Header_Component from '../Custom_Header_Component';
 import Food_View_Component from '../Food View Component/Food_View_Container';
 import Customer_Order_Summary from '../Customer Order Component/Customer_Order_Summary';
 import Select_Table_Component from '../Food View Component/Select_Table_Component';
-import Category_View_Componetnt from '../Food View Component/Category_View_Component';
+import Category_View_Component from '../Food View Component/Category_View_Component';
 
 export default function Take_an_Order_Page({ navigation }) {
   const [products, setProducts] = useState([]);
@@ -134,7 +134,7 @@ export default function Take_an_Order_Page({ navigation }) {
         </View>
 
         <View style={styles.catBox}>
-          <Category_View_Componetnt 
+          <Category_View_Component 
             categories={categories} 
             selectedCategory={selectedCategory} 
             setSelectedCategory={setSelectedCategory} 

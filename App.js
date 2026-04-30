@@ -11,32 +11,32 @@ import Generate_Reports_Page from './Components/Pages/Generate_Reports_Page';
 import Manage_Database_Page from './Components/Pages/Manage_Database_Page';
 import Settings_Page from './Components/Pages/Settings_Page';
 import { Custom_Header_Component } from './Components/Custom_Header_Component';
-
+import { ThemeProvider } from './ThemeContext';
 
 const Stack = createStackNavigator();
 
-
 export default function App() {
   return (
-    <NavigationContainer>
-      <View style={styles.container}>
-        <View style={styles.sideBar}>
-          <Side_Bar />
-        </View>
+    <ThemeProvider>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <View style={styles.sideBar}>
+            <Side_Bar />
+          </View>
 
-        <View style={styles.rightSide}>
-          <Stack.Navigator initialRouteName="Dashboard">
-            <Stack.Screen name="Dashboard" component={Dashboard_Page} options={{ headerShown: false, animationEnabled: false }} />
-            <Stack.Screen name="Take an Order" component={Take_an_Order_Page} options={{ headerShown: false, animationEnabled: false }} />
-            <Stack.Screen name="Placed Orders" component={Placed_Order} options={{ headerShown: false, animationEnabled: false }} />
-            <Stack.Screen name="Generate Reports" component={Generate_Reports_Page} options={{ headerShown: false, animationEnabled: false }} />
-            <Stack.Screen name="Manage Database" component={Manage_Database_Page} options={{ headerShown: false, animationEnabled: false }} />
-            <Stack.Screen name="Settings" component={Settings_Page} options={{ headerShown: false , animationEnabled: false}} />
-          </Stack.Navigator>
+          <View style={styles.rightSide}>
+            <Stack.Navigator initialRouteName="Dashboard">
+              <Stack.Screen name="Dashboard" component={Dashboard_Page} options={{ headerShown: false, animationEnabled: false }} />
+              <Stack.Screen name="Take an Order" component={Take_an_Order_Page} options={{ headerShown: false, animationEnabled: false }} />
+              <Stack.Screen name="Placed Orders" component={Placed_Order} options={{ headerShown: false, animationEnabled: false }} />
+              <Stack.Screen name="Generate Reports" component={Generate_Reports_Page} options={{ headerShown: false, animationEnabled: false }} />
+              <Stack.Screen name="Manage Database" component={Manage_Database_Page} options={{ headerShown: false, animationEnabled: false }} />
+              <Stack.Screen name="Settings" component={Settings_Page} options={{ headerShown: false , animationEnabled: false}} />
+            </Stack.Navigator>
+          </View>
         </View>
-      </View>
-        
-    </NavigationContainer>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

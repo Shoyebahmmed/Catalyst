@@ -140,7 +140,6 @@ export default function Generate_Reports_Page({ navigation }) {
 
   ];
 
-
   const renderReportComponent = () => {
     switch (reportType) {
       case 'daily':
@@ -149,7 +148,7 @@ export default function Generate_Reports_Page({ navigation }) {
         return <Generate_Weekly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
       case 'monthly':
         return <Generate_Monthly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
-      case 'yearly':
+       case 'yearly':
         return <Generate_Yearly_Report orderHistory={orderHistory} setIsOverLayOn={setIsOverLayOn} isOverLayOn={isOverLayOn} />;
       default:
         return null;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export default function Category_View_Componetnt  ({ categories, selectedCategory, setSelectedCategory }) {
+export default function Category_View_Component ({ categories, selectedCategory, setSelectedCategory }) {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoryScroller}>
       {categories.map(category => (
@@ -48,4 +48,3 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
-

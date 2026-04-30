@@ -4,11 +4,6 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react
 
 export default function Category_View({categories, setSelectedCategory}) {
 
-    const [category_list, setCategory_list] = useState([])
-    useEffect(() => {
-        setCategory_list(categories);
-    }, [category_list])
-
     function handel_select (item) {
         setSelectedCategory(item);
     }
@@ -18,7 +13,7 @@ export default function Category_View({categories, setSelectedCategory}) {
     <View style={styles.container}>
       <View style={styles.list_view}>
         <FlatList
-          data={category_list}
+          data={categories}
           renderItem={({ item }) => (
             <View style={styles.category}>
             <View style={styles.image_box}>
